@@ -1,0 +1,29 @@
+{
+  "name": "lol-tiny-loader",
+  "version": "0.1.5",
+  "description": "A minimalistic AMD loader (alternative to RequireJS)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ulrichb/LolTinyLoader.git"
+  },
+  "author": "ulrichb",
+  "license": "MIT",
+  "keywords": [
+    "amd",
+    "loader",
+    "tiny",
+    "minimalistic",
+    "synchronous",
+    "typescript"
+  ],
+  "bugs": "https://github.com/ulrichb/LolTinyLoader/issues",
+  "homepage": "https://github.com/ulrichb/LolTinyLoader#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-typescript": "^3.0.0",
+    "merge2": "^1.0.2",
+    "typescript": "^2.0.3",
+    "typings": "^1.4.0"
+  }
+}

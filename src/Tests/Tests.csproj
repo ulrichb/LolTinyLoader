@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <ProjectGuid>{7C837F0B-8487-41B4-A6FA-F8908BBA899E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <OutputPath>bin</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="tsconfig.json" />
+    <Content Include="SpecRunner.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="ModulesSampleSpec.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LolTinyLoader\LolTinyLoader.csproj">
+      <Project>{c40a92f5-c121-4b7e-8dc3-98dd99cbdfcd}</Project>
+      <Name>LolTinyLoader</Name>
+    </ProjectReference>
+    <TypeScriptCompile Include="TestInfrastructure.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="LolTinyLoaderSpec.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ModulesSample\ModulesSample.csproj">
+      <Project>{b478988f-7275-4282-86b1-d61dd9f2df7e}</Project>
+      <Name>ModulesSample</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>$(SolutionDir)node_modules\.bin\gulp build-Tests</PostBuildEvent>
+    <!-- NonExistentFile forces the CoreCompile-target to be executed, regardless of the input timestamps -->
+    <NonExistentFile>__NonExistentSubDir__\__NonExistentFile__</NonExistentFile>
+  </PropertyGroup>
+</Project>

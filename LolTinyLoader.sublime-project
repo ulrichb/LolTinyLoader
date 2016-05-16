@@ -1,0 +1,17 @@
+{
+	"folders":
+	[
+		{
+			"path": ".",
+			"folder_exclude_patterns": [".vs", "bin", "obj", "node_modules"]
+		}
+	],
+	"build_systems":
+	[
+		{
+			"name": "Gulp",
+			"working_dir": "$project_path",
+			"windows": { "cmd": "node_modules\\.bin\\gulp.cmd" }
+		}
+	]
+}

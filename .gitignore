@@ -1,0 +1,22 @@
+*.tmp
+
+# User-specific files
+.vs/
+*.suo
+*.user
+
+# Build results
+[Bb]in/
+[Oo]bj/
+/dist/
+
+# NuGet Packages
+[Pp]ackages/
+
+# npm
+node_modules/
+
+# Sublime Text
+*.sublime-workspace
+
+# custom ignores

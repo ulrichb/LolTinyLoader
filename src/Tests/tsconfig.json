@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "outFile": "bin/Tests.js",
+    "removeComments": false,
+    "target": "es5",
+    "lib": [ "es5", "dom" ],
+    "module": "amd",
+
+    "noImplicitAny": true,
+    "noImplicitReturns": true
+  }
+}

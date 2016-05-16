@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Manual LolTinyLoader Test</title>
+
+    <!-- ReSharper disable Html.PathError -->
+    <script src="../LolTinyLoader/bin/LolTinyLoader.js"></script>
+    <script src="bin/ModulesSample.js"></script>
+    <!-- ReSharper restore Html.PathError -->
+
+    <script>
+        function traceMessage(message) {
+            document.getElementById("trace").innerHTML += message + "\n";
+        }
+
+        window.addEventListener(
+            "load",
+            function () {
+                traceMessage("Before require(\"Main\") ...");
+
+                require("Main");
+
+                traceMessage("After require(\"Main\") ...");
+            });
+    </script>
+</head>
+
+<body>
+<pre id="trace">
+</pre>
+</body>
+</html>
