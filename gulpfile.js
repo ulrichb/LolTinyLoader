@@ -1,7 +1,8 @@
-/* globals require, console */
+/* globals require, console, __dirname */
 
 var gulp = require("gulp");
 var ts = require("gulp-typescript");
+var karma = require("karma");
 var merge = require("merge2");
 var sourcemaps = require("gulp-sourcemaps");
 
@@ -9,7 +10,14 @@ var sourcemaps = require("gulp-sourcemaps");
 // build calls in VS (in the VS solution the same dependency chain is maintained using project references).
 gulp.task("build", ["build-LolTinyLoader", "build-ModulesSample", "build-Tests"]);
 
-gulp.task("dist", ["build-LolTinyLoader"], function () {
+gulp.task("test", ["build"], function (done) {
+    new karma.Server({
+        configFile: __dirname + "/src/Tests/karma.conf.js",
+        singleRun: true
+    }, done).start();
+});
+
+gulp.task("dist", ["test"], function () {
     return gulp.src([
         "src/LolTinyLoader/*.ts",
         "src/LolTinyLoader/bin/*.d.ts",
@@ -17,7 +25,7 @@ gulp.task("dist", ["build-LolTinyLoader"], function () {
     ]).pipe(gulp.dest("dist"));
 });
 
-gulp.task("default", ["build"]);
+gulp.task("default", ["dist"]);
 
 gulp.task("build-LolTinyLoader", buildTypeScriptProject("src/LolTinyLoader"));
 gulp.task("build-ModulesSample", buildTypeScriptProject("src/ModulesSample"));

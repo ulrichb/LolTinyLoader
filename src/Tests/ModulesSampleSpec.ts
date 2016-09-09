@@ -6,11 +6,13 @@ describeScopedLolTinyLoader((getTraceMessages) => {
 
         // This is an integrative test based on "ModulesSample"
 
+        const modulesSampleJsPath = "../ModulesSample/bin/ModulesSample.js";
+
         let script: HTMLScriptElement;
 
         beforeEach((done) => {
             script = document.createElement("script");
-            script.src = "../ModulesSample/bin/ModulesSample.js";
+            script.src = modulesSampleJsPath;
             script.addEventListener("load", done);
             document.head.appendChild(script);
         });

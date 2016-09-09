@@ -7,6 +7,7 @@
     <OutputPath>bin</OutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="karma.conf.js" />
     <Content Include="tsconfig.json" />
     <Content Include="SpecRunner.html" />
   </ItemGroup>
@@ -14,10 +15,6 @@
     <TypeScriptCompile Include="ModulesSampleSpec.ts" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LolTinyLoader\LolTinyLoader.csproj">
-      <Project>{c40a92f5-c121-4b7e-8dc3-98dd99cbdfcd}</Project>
-      <Name>LolTinyLoader</Name>
-    </ProjectReference>
     <TypeScriptCompile Include="TestInfrastructure.ts" />
   </ItemGroup>
   <ItemGroup>
