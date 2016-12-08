@@ -10,7 +10,7 @@ describeScopedLolTinyLoader((getTraceMessages) => {
 
         let script: HTMLScriptElement;
 
-        beforeEach((done) => {
+        beforeEach(done => {
             script = document.createElement("script");
             script.src = modulesSampleJsPath;
             script.addEventListener("load", done);
