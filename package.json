@@ -19,6 +19,7 @@
   "bugs": "https://github.com/ulrichb/LolTinyLoader/issues",
   "homepage": "https://github.com/ulrichb/LolTinyLoader#readme",
   "devDependencies": {
+    "@types/jasmine": "^2.5.38",
     "gulp": "^3.9.1",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-typescript": "^3.0.0",
@@ -28,7 +29,6 @@
     "karma-jasmine": "^1.0.2",
     "karma-phantomjs-launcher": "^1.0.2",
     "merge2": "^1.0.2",
-    "typescript": "^2.0.3",
-    "typings": "^1.4.0"
+    "typescript": "^2.0.3"
   }
 }

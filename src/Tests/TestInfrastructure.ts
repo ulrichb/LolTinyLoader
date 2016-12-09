@@ -1,5 +1,4 @@
-﻿/// <reference path="../../typings/index.d.ts"/>
-/// <reference path="../LolTinyLoader/LolTinyLoader.ts"/>
+﻿/// <reference path="../LolTinyLoader/LolTinyLoader.ts"/>
 
 let traceMessage: (message: string) => void;
 
