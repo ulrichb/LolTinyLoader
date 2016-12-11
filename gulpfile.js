@@ -1,5 +1,6 @@
 /* globals require, console, __dirname */
 
+var process = require("process");
 var gulp = require("gulp");
 var ts = require("gulp-typescript");
 var karma = require("karma");
@@ -37,7 +38,8 @@ function buildTypeScriptProject(projectDirPath) {
 
         var tsResult = tsProject.src()
             .pipe(sourcemaps.init())
-            .pipe(tsProject(msbuildReporter()));
+            .pipe(tsProject(msbuildReporter()))
+            .once("error", function () { this.once("finish", () => process.exit(1)); });
 
         return merge([
             tsResult.js
