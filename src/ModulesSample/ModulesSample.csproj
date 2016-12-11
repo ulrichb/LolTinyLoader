@@ -28,7 +28,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>$(SolutionDir)node_modules\.bin\gulp build-ModulesSample</PostBuildEvent>
+    <PreBuildEvent>$(SolutionDir)node_modules\.bin\gulp build-ModulesSample</PreBuildEvent>
     <!-- NonExistentFile forces the CoreCompile-target to be executed, regardless of the input timestamps -->
     <NonExistentFile>__NonExistentSubDir__\__NonExistentFile__</NonExistentFile>
   </PropertyGroup>
