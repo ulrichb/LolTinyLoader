@@ -5,6 +5,8 @@
 
 describeScopedLolTinyLoader((getTraceMessages) => {
 
+    const dontCareModuleFunc = fail;
+
     describe("LolTinyLoader", () => {
 
         it("passes exports as require() result", () => {
@@ -66,9 +68,9 @@ describeScopedLolTinyLoader((getTraceMessages) => {
         });
 
         it("throws on double registration", () => {
-            define("mod", [], () => { });
+            define("mod", [], dontCareModuleFunc);
 
-            const act = () => define("mod", [], () => { });
+            const act = () => define("mod", [], dontCareModuleFunc);
 
             expect(act).toThrow("double registration of module 'mod'");
         });
@@ -89,8 +91,8 @@ describeScopedLolTinyLoader((getTraceMessages) => {
 
         unresolvableModuleNames.forEach(moduleName => {
             it(`throws when resolving unregistered module '${moduleName}' as dependency`, () => {
-                define("modA", ["modB"], () => { });
-                define("modB", [moduleName], () => { });
+                define("modA", ["modB"], dontCareModuleFunc);
+                define("modB", [moduleName], dontCareModuleFunc);
 
                 const act = () => require("modA");
 
@@ -108,9 +110,9 @@ describeScopedLolTinyLoader((getTraceMessages) => {
         });
 
         it("detects circular dependencies", () => {
-            define("modA", ["modB"], () => { });
-            define("modB", ["modC"], () => { });
-            define("modC", ["modA"], () => { });
+            define("modA", ["modB"], dontCareModuleFunc);
+            define("modB", ["modC"], dontCareModuleFunc);
+            define("modC", ["modA"], dontCareModuleFunc);
 
             const act = () => require("modA");
 
@@ -118,9 +120,9 @@ describeScopedLolTinyLoader((getTraceMessages) => {
         });
 
         it("provides all module names", () => {
-            define("modC", [], () => { });
-            define("modA", [], () => { });
-            define("modB", [], () => { });
+            define("modC", [], dontCareModuleFunc);
+            define("modA", [], dontCareModuleFunc);
+            define("modB", [], dontCareModuleFunc);
 
             const registeredModuleNames = LolTinyLoader.registry.getAllModuleNames();
 
