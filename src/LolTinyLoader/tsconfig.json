@@ -7,7 +7,12 @@
     "lib": [ "es5" ],
 
     "noImplicitAny": true,
-    "noImplicitReturns": true
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitThis": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "strictNullChecks": true
   },
   "exclude": [ "bin" ]
 }

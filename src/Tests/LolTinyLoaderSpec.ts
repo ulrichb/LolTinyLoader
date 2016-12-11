@@ -34,7 +34,7 @@ describeScopedLolTinyLoader((getTraceMessages) => {
             let thisReferenceInsideModule: any;
             let exportsReferenceInsideModule: any;
 
-            define("mod", ["exports"], function (exports) {
+            define("mod", ["exports"], function (this: any, exports) {
                 thisReferenceInsideModule = this;
                 exportsReferenceInsideModule = exports;
             });
