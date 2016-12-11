@@ -1,9 +1,7 @@
-﻿import { ClassC } from "ModuleC";
+﻿import { funcInModuleC } from "ModuleC";
 
 traceMessage("Init of module ModuleA");
 
-export class ClassA {
-    public static say(): string {
-        return `Hi, I am '${this.name}' and I'm referencing '${ClassC.say()}'`;
-    }
+export function funcInModuleA(): string {
+    return `Hi, I am '${funcInModuleA.name}' and I'm referencing "${funcInModuleC()}"`;
 }

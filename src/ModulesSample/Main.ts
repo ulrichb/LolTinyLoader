@@ -1,8 +1,8 @@
-﻿import { ClassA } from "ModuleA";
-import { ClassB } from "ModuleB";
-import { ClassD } from "ModuleD";
+﻿import { funcInModuleA } from "ModuleA";
+import { funcInModuleB } from "ModuleB";
+import { ClassInModuleD } from "ModuleD";
 import defaultExportModuleValue from "DefaultExportModule";
-import {} from "OptionalModule"; // doesn't import here, but makes sure that the module is part of the compilation
+import { } from "OptionalModule"; // doesn't import here, but makes sure that the module is part of the compilation
 
 /*
            Main
@@ -19,9 +19,9 @@ import {} from "OptionalModule"; // doesn't import here, but makes sure that the
 */
 
 traceMessage("Init of module Main");
-traceMessage(`In Main, ClassA says: ${ClassA.say()}.`);
-traceMessage(`In Main, ClassB says: ${ClassB.say()}.`);
-traceMessage(`In Main, we also reference ${ClassD.name}`);
+traceMessage(`In Main, funcInModuleA says: ${funcInModuleA()}.`);
+traceMessage(`In Main, funcInModuleB says: ${funcInModuleB()}.`);
+traceMessage(`In Main, we also reference ${new ClassInModuleD().introduce()}.`);
 traceMessage(`In Main, defaultExportModuleValue is '${defaultExportModuleValue}'.`);
 
 
