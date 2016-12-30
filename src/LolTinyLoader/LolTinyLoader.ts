@@ -1,5 +1,5 @@
-﻿var require: (module: string) => any;
-var define: (name: string, dependencies: string[], moduleFunction: (...args: any[]) => void) => any;
+﻿let require: (module: string) => any;
+let define: (name: string, dependencies: string[], moduleFunction: (...args: any[]) => void) => any;
 
 namespace LolTinyLoader {
 
@@ -74,8 +74,8 @@ namespace LolTinyLoader {
         private resolvedExports: any = null;
 
         public constructor(
-            private dependencies: string[],
-            private moduleFunction: (...args: any[]) => void) {
+            private readonly dependencies: string[],
+            private readonly moduleFunction: (...args: any[]) => void) {
         }
 
         public resolve(resolveChain: string[]): any {
