@@ -44,9 +44,9 @@ function buildTypeScriptProject(projectDirPath) {
         return merge([
             tsResult.js
                 .pipe(sourcemaps.write())
-                .pipe(gulp.dest(".")),
+                .pipe(gulp.dest(projectDirPath)),
             tsResult.dts
-                .pipe(gulp.dest("."))
+                .pipe(gulp.dest(projectDirPath))
         ]);
     };
 }
