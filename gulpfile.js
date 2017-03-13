@@ -2,14 +2,20 @@
 
 var process = require("process");
 var gulp = require("gulp");
+var gutil = require("gulp-util");
 var ts = require("gulp-typescript");
 var karma = require("karma");
 var merge = require("merge2");
 var sourcemaps = require("gulp-sourcemaps");
 
-// The order reflects the dependency chain and is maintained here instead of the individual tasks to avoid unnecessary
-// build calls in VS (in the VS solution the same dependency chain is maintained using project references).
-gulp.task("build", ["build-LolTinyLoader", "build-ModulesSample", "build-Tests"]);
+// Use "vs" env flag to disable build dependencies (the VS solution maintains the dependencies using project references):
+var buildDeps = !gutil.env.vs;
+
+gulp.task("build-LolTinyLoader", buildTypeScriptProject("src/LolTinyLoader"));
+gulp.task("build-ModulesSample", buildDeps ? ["build-LolTinyLoader"] : [], buildTypeScriptProject("src/ModulesSample"));
+gulp.task("build-Tests", buildDeps ? ["build-ModulesSample"] : [], buildTypeScriptProject("src/Tests"));
+
+gulp.task("build", ["build-Tests"]);
 
 gulp.task("test", ["build"], function (done) {
     new karma.Server({
@@ -27,10 +33,6 @@ gulp.task("dist", ["test"], function () {
 });
 
 gulp.task("default", ["dist"]);
-
-gulp.task("build-LolTinyLoader", buildTypeScriptProject("src/LolTinyLoader"));
-gulp.task("build-ModulesSample", buildTypeScriptProject("src/ModulesSample"));
-gulp.task("build-Tests", buildTypeScriptProject("src/Tests"));
 
 function buildTypeScriptProject(projectDirPath) {
     return function () {

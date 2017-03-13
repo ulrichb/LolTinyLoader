@@ -14,7 +14,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>$(SolutionDir)node_modules\.bin\gulp build-LolTinyLoader</PreBuildEvent>
+    <PreBuildEvent>$(SolutionDir)node_modules\.bin\gulp build-LolTinyLoader --vs</PreBuildEvent>
     <!-- NonExistentFile forces the CoreCompile-target to be executed, regardless of the input timestamps -->
     <NonExistentFile>__NonExistentSubDir__\__NonExistentFile__</NonExistentFile>
   </PropertyGroup>
