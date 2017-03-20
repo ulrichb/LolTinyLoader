@@ -19,17 +19,17 @@
   "bugs": "https://github.com/ulrichb/LolTinyLoader/issues",
   "homepage": "https://github.com/ulrichb/LolTinyLoader#readme",
   "devDependencies": {
-    "@types/jasmine": "^2.5.43",
+    "@types/jasmine": "^2.5.47",
     "gulp": "^3.9.1",
-    "gulp-sourcemaps": "^2.4.1",
-    "gulp-typescript": "^3.1.5",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-typescript": "^3.1.7",
     "gulp-util": "^3.0.8",
-    "jasmine-core": "^2.5.2",
-    "karma": "^1.5.0",
+    "jasmine-core": "^2.6.2",
+    "karma": "^1.7.0",
     "karma-coverage": "^1.1.1",
     "karma-jasmine": "^1.1.0",
-    "karma-phantomjs-launcher": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.4",
     "merge2": "^1.0.3",
-    "typescript": "^2.2.1"
+    "typescript": "^2.3.3"
   }
 }
