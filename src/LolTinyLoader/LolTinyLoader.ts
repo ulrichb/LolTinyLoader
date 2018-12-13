@@ -7,14 +7,14 @@ namespace LolTinyLoader {
     export interface Registry {
 
         /** Resets the registry (removes all module registrations) */
-        clear(): void;
+        readonly clear: () => void;
 
         /** Returns an array of all registered module names in an undefined order */
-        getAllModuleNames(): string[];
+        readonly getAllModuleNames: () => string[];
     }
 
     interface RecursiveResolver {
-        resolve(name: string, resolveChain: string[]): any;
+        readonly resolve: (name: string, resolveChain: string[]) => any;
     }
 
     class RegistryImpl implements Registry, RecursiveResolver {
@@ -76,7 +76,7 @@ namespace LolTinyLoader {
 
         public resolve(resolveChain: string[]): any {
             if (this.resolvedExports === null) {
-                const exports = { };
+                const exports = {};
 
                 const resolverWithSpecialRegistrations = registryImpl
                     .withSpecialRegistrations({ require: require, exports: exports });
