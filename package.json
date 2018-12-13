@@ -6,6 +6,7 @@
     "type": "git",
     "url": "git+https://github.com/ulrichb/LolTinyLoader.git"
   },
+  "files": ["dist/**"],
   "author": "ulrichb",
   "license": "MIT",
   "keywords": [
