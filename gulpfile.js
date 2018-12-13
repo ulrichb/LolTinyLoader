@@ -1,28 +1,37 @@
 /* globals require, console, __dirname */
 
 const assert = require("assert");
-const { spawnSync } = require("child_process");
+const { spawn } = require("child_process");
 const gulp = require("gulp");
-const karma = require("karma");
 
-gulp.task("build-LolTinyLoader", () => shellExecSync(`npx tsc -p ${"src/LolTinyLoader"}`));
-gulp.task("build-ModulesSample", ["build-LolTinyLoader"], () => shellExecSync(`npx tsc -p ${"src/ModulesSample"}`));
-gulp.task("build-Tests", ["build-ModulesSample"], () => shellExecSync(`npx tsc -p ${"src/Tests"}`));
+const buildLolTinyLoader = () => shellExec(`npx tsc -p ${"src/LolTinyLoader"}`);
+const buildModulesSample = () => shellExec(`npx tsc -p ${"src/ModulesSample"}`);
+const buildTests = () => shellExec(`npx tsc -p ${"src/Tests"}`);
 
-gulp.task("build", ["build-Tests"]);
+const build = gulp.parallel(buildLolTinyLoader, buildModulesSample, buildTests);
+exports.build = build;
 
-gulp.task("test", ["build"], () => shellExecSync(`npx karma start src/Tests/karma.conf.js --single-run`));
+const runTests = () => shellExec(`npx karma start src/Tests/karma.conf.js --single-run`);
+const test = gulp.series(build, runTests);
+exports.test = test;
 
-gulp.task("dist", ["test"], function () {
+function copyToDist() {
     return gulp.src([
         "src/LolTinyLoader/*.ts",
         "src/LolTinyLoader/bin/*.d.ts",
         "src/LolTinyLoader/bin/*.js"
     ]).pipe(gulp.dest("dist"));
-});
+}
+const dist = gulp.series(test, copyToDist);
+exports.dist = dist;
 
-gulp.task("default", ["dist"]);
+exports.default = dist;
 
-function shellExecSync(command) {
-    assert.strictEqual(spawnSync(command, { shell: true, stdio: "inherit" }).status, 0);
+function shellExec(command) {
+    return new Promise((res, rej) =>
+        spawn(command, { shell: true, stdio: "inherit" }).on('exit', (code) => {
+            if (code === null || code > 0)
+                rej(new Error('Exit code: ' + code));
+            res();
+        }));
 }
