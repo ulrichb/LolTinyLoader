@@ -19,11 +19,7 @@ namespace LolTinyLoader {
 
     class RegistryImpl implements Registry, RecursiveResolver {
 
-        private moduleRegistrations: { [moduleName: string]: ModuleRegistration };
-
-        public constructor() {
-            this.clear();
-        }
+        private moduleRegistrations: { [moduleName: string]: ModuleRegistration } = {};
 
         public addModuleRegistration(name: string, moduleRegistration: ModuleRegistration) {
             if (this.moduleRegistrations.hasOwnProperty(name))
@@ -47,7 +43,7 @@ namespace LolTinyLoader {
         }
 
         public clear(): any {
-            this.moduleRegistrations = { };
+            this.moduleRegistrations = {};
         }
 
         public getAllModuleNames(): string[] {

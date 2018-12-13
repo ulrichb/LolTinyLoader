@@ -1,18 +1,13 @@
 {
+  "extends": "../tsconfig.base",
   "compilerOptions": {
     "outFile": "bin/LolTinyLoader.js",
-    "declaration": true,
     "removeComments": false,
+    "declaration": true,
+    "sourceMap": true,
     "target": "es5",
-    "lib": [ "es5" ],
-
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitThis": true,
-    "noUnusedParameters": true,
-    "noUnusedLocals": true,
-    "strictNullChecks": true
+    "lib": ["es5"],
+    "types": []
   },
-  "exclude": [ "bin" ]
+  "exclude": ["bin"]
 }

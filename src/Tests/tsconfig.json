@@ -1,17 +1,12 @@
 {
+  "extends": "../tsconfig.base",
   "compilerOptions": {
     "outFile": "bin/Tests.js",
     "removeComments": false,
+    "sourceMap": true,
     "target": "es5",
-    "lib": [ "es5", "dom" ],
-    "module": "amd",
-
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitThis": true,
-    "noUnusedParameters": true,
-    "noUnusedLocals": true,
-    "strictNullChecks": true
+    "lib": ["es5", "dom"],
+    "types": ["@types/jasmine"],
+    "module": "amd"
   }
 }

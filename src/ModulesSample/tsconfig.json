@@ -1,18 +1,12 @@
 {
+  "extends": "../tsconfig.base",
   "compilerOptions": {
     "outFile": "bin/ModulesSample.js",
     "removeComments": false,
+    "sourceMap": true,
     "target": "es5",
-    "lib": [ "es5", "es2015.core" ],
-    "module": "amd",
-
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitThis": true,
-    "noUnusedParameters": true,
-    "noUnusedLocals": true,
-    "strictNullChecks": true
+    "lib": ["es5", "es2015.core"],
+    "module": "amd"
   },
   "include": [
     "Trace.d.ts",
