@@ -5,9 +5,9 @@ const { spawnSync } = require("child_process");
 const gulp = require("gulp");
 const karma = require("karma");
 
-gulp.task("build-LolTinyLoader", () => buildTypeScriptProject("src/LolTinyLoader"));
-gulp.task("build-ModulesSample", ["build-LolTinyLoader"], () => buildTypeScriptProject("src/ModulesSample"));
-gulp.task("build-Tests", ["build-ModulesSample"], () => buildTypeScriptProject("src/Tests"));
+gulp.task("build-LolTinyLoader", () => shellExecSync(`npx tsc -p ${"src/LolTinyLoader"}`));
+gulp.task("build-ModulesSample", ["build-LolTinyLoader"], () => shellExecSync(`npx tsc -p ${"src/ModulesSample"}`));
+gulp.task("build-Tests", ["build-ModulesSample"], () => shellExecSync(`npx tsc -p ${"src/Tests"}`));
 
 gulp.task("build", ["build-Tests"]);
 
@@ -28,6 +28,6 @@ gulp.task("dist", ["test"], function () {
 
 gulp.task("default", ["dist"]);
 
-function buildTypeScriptProject(projectDirPath) {
-    assert.strictEqual(spawnSync(`npx tsc -p ${projectDirPath}`, { shell: true, stdio: "inherit" }).status, 0);
+function shellExecSync(command) {
+    assert.strictEqual(spawnSync(command, { shell: true, stdio: "inherit" }).status, 0);
 }
