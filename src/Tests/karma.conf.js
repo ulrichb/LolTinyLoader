@@ -19,7 +19,7 @@ module.exports = function (config) {
             '**/*.js': ["coverage"]
         },
 
-        browsers: ["PhantomJS"],
+        browsers: ["ChromeHeadless"],
 
         reporters: ["progress", "coverage"],
         coverageReporter: {
@@ -29,4 +29,4 @@ module.exports = function (config) {
 
         logLevel: config.LOG_INFO
     });
-}
+};

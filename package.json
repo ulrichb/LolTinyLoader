@@ -6,7 +6,9 @@
     "type": "git",
     "url": "git+https://github.com/ulrichb/LolTinyLoader.git"
   },
-  "files": ["dist/**"],
+  "files": [
+    "dist/**"
+  ],
   "author": "ulrichb",
   "license": "MIT",
   "keywords": [
@@ -20,14 +22,14 @@
   "bugs": "https://github.com/ulrichb/LolTinyLoader/issues",
   "homepage": "https://github.com/ulrichb/LolTinyLoader#readme",
   "devDependencies": {
-    "@types/jasmine": "^2.8.3",
+    "@types/jasmine": "^3.3.1",
     "@types/node": "^10.12.15",
     "gulp": "^3.9.1",
-    "jasmine-core": "^2.8.0",
-    "karma": "^2.0.0",
+    "jasmine-core": "^3.3.0",
+    "karma": "^3.1.3",
+    "karma-chrome-launcher": "^2.2.0",
     "karma-coverage": "^1.1.1",
-    "karma-jasmine": "^1.1.1",
-    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-jasmine": "^2.0.1",
     "typescript": "^3.2.2"
   }
 }

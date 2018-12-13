@@ -11,12 +11,7 @@ gulp.task("build-Tests", ["build-ModulesSample"], () => shellExecSync(`npx tsc -
 
 gulp.task("build", ["build-Tests"]);
 
-gulp.task("test", ["build"], function (done) {
-    new karma.Server({
-        configFile: __dirname + "/src/Tests/karma.conf.js",
-        singleRun: true
-    }, done).start();
-});
+gulp.task("test", ["build"], () => shellExecSync(`npx karma start src/Tests/karma.conf.js --single-run`));
 
 gulp.task("dist", ["test"], function () {
     return gulp.src([
