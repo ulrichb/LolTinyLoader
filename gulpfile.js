@@ -3,15 +3,11 @@
 const assert = require("assert");
 const { spawnSync } = require("child_process");
 const gulp = require("gulp");
-const gutil = require("gulp-util");
 const karma = require("karma");
 
-// Use "vs" env flag to disable build dependencies (the VS solution maintains the dependencies using project references):
-var buildDeps = !gutil.env.vs;
-
 gulp.task("build-LolTinyLoader", () => buildTypeScriptProject("src/LolTinyLoader"));
-gulp.task("build-ModulesSample", buildDeps ? ["build-LolTinyLoader"] : [], () => buildTypeScriptProject("src/ModulesSample"));
-gulp.task("build-Tests", buildDeps ? ["build-ModulesSample"] : [], () => buildTypeScriptProject("src/Tests"));
+gulp.task("build-ModulesSample", ["build-LolTinyLoader"], () => buildTypeScriptProject("src/ModulesSample"));
+gulp.task("build-Tests", ["build-ModulesSample"], () => buildTypeScriptProject("src/Tests"));
 
 gulp.task("build", ["build-Tests"]);
 
