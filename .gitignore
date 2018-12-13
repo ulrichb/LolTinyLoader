@@ -10,16 +10,8 @@
 [Oo]bj/
 /dist/
 
-# NuGet Packages
-[Pp]ackages/
-
 # npm
 node_modules/
 
 # Sublime Text
 *.sublime-workspace
-
-# IDEA
-.idea/
-
-# custom ignores
