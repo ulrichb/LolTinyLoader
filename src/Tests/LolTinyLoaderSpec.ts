@@ -33,10 +33,10 @@ describeScopedLolTinyLoader((getTraceMessages) => {
         });
 
         it("passes exports as this reference to module function", () => {
-            let thisReferenceInsideModule: any;
-            let exportsReferenceInsideModule: any;
+            let thisReferenceInsideModule: unknown;
+            let exportsReferenceInsideModule: unknown;
 
-            define("mod", ["exports"], function (this: any, exports) {
+            define("mod", ["exports"], function (this: unknown, exports) {
                 thisReferenceInsideModule = this;
                 exportsReferenceInsideModule = exports;
             });
@@ -101,12 +101,12 @@ describeScopedLolTinyLoader((getTraceMessages) => {
         });
 
         it("provides the require() function as dependency", () => {
-            let requireAsdependency: any;
-            define("mod", ["require"], (r) => { requireAsdependency = r });
+            let requireAsDependency: unknown;
+            define("mod", ["require"], (r) => { requireAsDependency = r });
 
             require("mod");
 
-            expect(requireAsdependency).toBe(require);
+            expect(requireAsDependency).toBe(require);
         });
 
         it("detects circular dependencies", () => {
