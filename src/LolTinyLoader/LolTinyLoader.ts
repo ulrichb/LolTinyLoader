@@ -42,7 +42,7 @@ namespace LolTinyLoader {
             return moduleRegistration.resolve(newResolveChain);
         }
 
-        public clear(): any {
+        public clear(): void {
             this.moduleRegistrations = {};
         }
 
