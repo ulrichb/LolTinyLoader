@@ -7,12 +7,12 @@ function describeScopedLolTinyLoader(specDefinitions: (getTraceMessages: () => s
     describe("with scoped registry and recorded trace messages", () => {
 
         let recordedTraceMessages: string[];
-        let savedTraceMessage: any;
+        let savedTraceMessage: typeof traceMessage;
 
         beforeEach(() => {
             recordedTraceMessages = [];
             savedTraceMessage = traceMessage;
-            traceMessage = (message) => { recordedTraceMessages.push(message); };
+            traceMessage = (message) => recordedTraceMessages.push(message);
 
             expect(LolTinyLoader.registry.getAllModuleNames()).toEqual([], "because registrations must not leak");
         });
