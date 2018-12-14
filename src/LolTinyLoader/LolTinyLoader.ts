@@ -79,7 +79,7 @@ namespace LolTinyLoader {
                 const exports = {};
 
                 const resolverWithSpecialRegistrations = registryImpl
-                    .withSpecialRegistrations({ require: require, exports: exports });
+                    .withSpecialRegistrations({ require, exports });
 
                 const resolvedDependencies = this.dependencies
                     .map(dependency => resolverWithSpecialRegistrations.resolve(dependency, resolveChain));
