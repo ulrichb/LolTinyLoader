@@ -28,10 +28,5 @@ exports.dist = dist;
 exports.default = dist;
 
 function shellExec(command) {
-    return new Promise((res, rej) =>
-        spawn(command, { shell: true, stdio: "inherit" }).on('exit', (code) => {
-            if (code === null || code > 0)
-                rej(new Error('Exit code: ' + code));
-            res();
-        }));
+    return spawn(command, { shell: true, stdio: "inherit" });
 }
