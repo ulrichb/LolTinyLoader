@@ -1,19 +1,16 @@
 /* globals require, console, __dirname */
 
-const assert = require("assert");
-const { spawn } = require("child_process");
-const gulp = require("gulp");
+import { spawn } from "child_process";
+import gulp from "gulp";
 
 const buildLolTinyLoader = () => shellExec(`npx tsc -p ${"src/LolTinyLoader"}`);
 const buildModulesSample = () => shellExec(`npx tsc -p ${"src/ModulesSample"}`);
 const buildTests = () => shellExec(`npx tsc -p ${"src/Tests"}`);
 
-const build = gulp.parallel(buildLolTinyLoader, buildModulesSample, buildTests);
-exports.build = build;
+export const build = gulp.parallel(buildLolTinyLoader, buildModulesSample, buildTests);
 
 const runTests = () => shellExec(`npx karma start src/Tests/karma.conf.js --single-run`);
-const test = gulp.series(build, runTests);
-exports.test = test;
+export const test = gulp.series(build, runTests);
 
 function copyToDist() {
     return gulp.src([
@@ -22,10 +19,9 @@ function copyToDist() {
         "src/LolTinyLoader/bin/*.js"
     ]).pipe(gulp.dest("dist"));
 }
-const dist = gulp.series(test, copyToDist);
-exports.dist = dist;
+export const dist = gulp.series(test, copyToDist);
 
-exports.default = dist;
+export default dist;
 
 function shellExec(command) {
     return spawn(command, { shell: true, stdio: "inherit" });

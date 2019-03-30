@@ -2,7 +2,7 @@
   <configuration default="false" name="test" type="js.build_tools.gulp">
     <node-interpreter>project</node-interpreter>
     <node-options />
-    <gulpfile>$PROJECT_DIR$/gulpfile.js</gulpfile>
+    <gulpfile>$PROJECT_DIR$/gulpfile.esm.js</gulpfile>
     <tasks>
       <task>test</task>
     </tasks>

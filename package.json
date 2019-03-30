@@ -24,6 +24,7 @@
   "devDependencies": {
     "@types/jasmine": "^3.3.12",
     "@types/node": "^11.12.2",
+    "esm": "^3.2.22",
     "gulp": "^4.0.0",
     "jasmine-core": "^3.3.0",
     "karma": "^4.0.1",
